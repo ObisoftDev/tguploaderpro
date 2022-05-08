@@ -1,0 +1,17 @@
+requests
+requests[socks] 
+python-telegram-bot 
+bs4 
+user_agent 
+ping3 
+nmap 
+tcping 
+pyping 
+youtube_dl 
+requests_toolbelt 
+telethon 
+tenacity
+pyrogram
+tgcrypto
+aiohttp
+yarl
