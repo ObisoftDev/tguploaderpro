@@ -1,5 +1,5 @@
 # tguploaderpro
-Descargador gratis de contenido desde internet a hacia moodles , nexcloud en cuba
+Bot De Telegram : TGUploaderPro v7.0 Fixed , Descargador gratis de contenido desde internet a hacia moodles , nexcloud en cuba
 
 # Deploy Usando Git Win Y Heroku Cli Desde PC
 ```
