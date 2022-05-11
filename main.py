@@ -20,7 +20,6 @@ from pydownloader.downloader import Downloader
 from ProxyCloud import ProxyCloud
 import ProxyCloud
 import socket
-import tlmedia
 import S5Crypto
 
 
@@ -178,7 +177,7 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
                            findex+=1
                     client.logout()
                 except:pass
-            if getUser['uploadtype'] == 'draft' or getUser['uploadtype'] == 'blog':
+            if getUser['uploadtype'] == 'draft' or getUser['uploadtype'] == 'blog' or getUser['uploadtype']=='calendario':
                for draft in client:
                    files.append({'name':draft['file'],'directurl':draft['url']})
         else:
@@ -242,7 +241,7 @@ def onmessage(update,bot:ObigramClient):
         tl_admin_user = os.environ.get('tl_admin_user','*')
 
         #Descomentar debajo solo si se ba a poner el usuario admin de telegram manual
-        #tl_admin_user = ''
+        tl_admin_user = '*'
 
         jdb = JsonDatabase('database')
         jdb.check_create()
@@ -552,21 +551,6 @@ def onmessage(update,bot:ObigramClient):
             url = msgText
             ddl(update,bot,message,url,file_name='',thread=thread,jdb=jdb)
         else:
-            #if update:
-            #    api_id = os.environ.get('api_id')
-            #    api_hash = os.environ.get('api_hash')
-            #    bot_token = os.environ.get('bot_token')
-            #    
-                # set in debug
-            #    api_id = 7386053
-            #    api_hash = '78d1c032f3aa546ff5176d9ff0e7f341'
-            #    bot_token = '5124841893:AAH30p6ljtIzi2oPlaZwBmCfWQ1KelC6KUg'
-
-            #    chat_id = int(update.message.chat.id)
-            #    message_id = int(update.message.message_id)
-            #    import asyncio
-            #    asyncio.run(tlmedia.download_media(api_id,api_hash,bot_token,chat_id,message_id))
-            #    return
             bot.editMessageText(message,'😵No se pudo procesar😵')
     except Exception as ex:
            print(str(ex))
@@ -576,7 +560,7 @@ def main():
     bot_token = os.environ.get('bot_token')
 
     #decomentar abajo y modificar solo si se va a poner el token del bot manual
-    #bot_token = 'BOT TOKEN'
+    bot_token = '5385503104:AAE1xE54eHCtCSdrN2ksAVubVK8jWm8f68g'
 
     bot = ObigramClient(bot_token)
     bot.onMessage(onmessage)

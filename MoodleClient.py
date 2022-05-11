@@ -31,17 +31,19 @@ class CallingUpload:
                     self.speed = 0
                     self.last_read_byte = 0
                 def __call__(self,monitor):
-                    self.speed += monitor.bytes_read - self.last_read_byte
-                    self.last_read_byte = monitor.bytes_read
-                    tcurrent = time.time() - self.time_start
-                    self.time_total += tcurrent
-                    self.time_start = time.time()
-                    if self.time_total>=1:
-                            clock_time = (monitor.len - monitor.bytes_read) / (self.speed)
-                            if self.func:
-                                self.func(self.filename,monitor.bytes_read,monitor.len,self.speed,clock_time,self.args)
-                            self.time_total = 0
-                            self.speed = 0
+                    try:
+                        self.speed += monitor.bytes_read - self.last_read_byte
+                        self.last_read_byte = monitor.bytes_read
+                        tcurrent = time.time() - self.time_start
+                        self.time_total += tcurrent
+                        self.time_start = time.time()
+                        if self.time_total>=1:
+                                clock_time = (monitor.len - monitor.bytes_read) / (self.speed)
+                                if self.func:
+                                    self.func(self.filename,monitor.bytes_read,monitor.len,self.speed,clock_time,self.args)
+                                self.time_total = 0
+                                self.speed = 0
+                    except:pass
 
 class MoodleClient(object):
     def __init__(self, user,passw,host='',repo_id=4,proxy:ProxyCloud=None):
