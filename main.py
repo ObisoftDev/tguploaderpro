@@ -132,7 +132,8 @@ def processUploadFiles(filename,filesize,files,update,bot,message,thread=None,jd
                return filesdata
         return None
     except Exception as ex:
-        bot.editMessageText(message,'❌Error En La Pagina❌')
+        bot.editMessageText(message,'❌Error❌\n' + str(ex))
+        return None
 
 
 def processFile(update,bot,message,file,thread=None,jdb=None):
@@ -190,8 +191,6 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
         if len(files)>0:
             txtname = str(file).split('/')[-1].split('.')[0] + '.txt'
             sendTxt(txtname,files,update,bot)
-    else:
-        bot.editMessageText(message,'❌Error En La Pagina❌')
 
 def ddl(update,bot,message,url,file_name='',thread=None,jdb=None):
     downloader = Downloader()
@@ -241,7 +240,7 @@ def onmessage(update,bot:ObigramClient):
         tl_admin_user = os.environ.get('tl_admin_user','*')
 
         #Descomentar debajo solo si se ba a poner el usuario admin de telegram manual
-        #tl_admin_user = '*'
+        tl_admin_user = '*'
 
         jdb = JsonDatabase('database')
         jdb.check_create()
@@ -560,7 +559,7 @@ def main():
     bot_token = os.environ.get('bot_token')
 
     #decomentar abajo y modificar solo si se va a poner el token del bot manual
-    #bot_token = 'BOT TOKEN'
+    bot_token = '5385503104:AAE1xE54eHCtCSdrN2ksAVubVK8jWm8f68g'
 
     bot = ObigramClient(bot_token)
     bot.onMessage(onmessage)
