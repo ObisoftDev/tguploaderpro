@@ -2,7 +2,7 @@ import random
 
 
 def crypt_char(char):
-    map = '@./=#$%&:,;_-|0712356894bcd3fghijkwlmanopqrstuvxyzACDEFGHIJKLMVNOPQRSTUWXYZB'
+    map = '@./=#$%&:,;_-|0123456789abcd3fghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     i = 0
     for ch in map:
         if ch == char:
