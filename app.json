@@ -1,10 +1,12 @@
 {
   "name": "TGUploaderPro",
-  "description": "Bot de Telegram para buscar y extraer enlaces de descargas de aplicaciones uptodown",
+  "description": "Bot De Telegram : TGUploaderPro v7.0 Fixed , Descargador gratis de contenido desde internet a hacia moodles , nexcloud en cuba",
   "repository": "https://github.com/ObisoftDev/tguploaderpro", 
   "env": {
     "bot_token": {
       "description": "El token del bot"
+    },"tl_admin_user": {
+      "description": "usuarion administrador del bote de telegram","value":"*"
     }
   }
 }
